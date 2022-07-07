@@ -7,7 +7,6 @@ class QuotesController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -20,19 +19,18 @@ class QuotesController < ApplicationController
     if @quote.save
       redirect_to quotes_path, notice: "Quote created successfully"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-
   end
 
   def update
     if @quote.update(quote_params)
       redirect_to quotes_path, notice: "Quote updated successfully"
     else
-      render :edit
+      render :edit, status: :unprocessable_entity 
     end
   end
 

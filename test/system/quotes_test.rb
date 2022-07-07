@@ -14,7 +14,7 @@ class QuotesTest < ApplicationSystemTestCase
 
     # When we click on the link with the text "New Quote"
     # we expect to land on a page with the title "New Quote"
-    click_on "New Quote"
+    click_on "New quote"
     assert_selector "h1", text: "New quote"
 
     # When we fill in the name input with "Capybara quote"
@@ -51,9 +51,9 @@ class QuotesTest < ApplicationSystemTestCase
 
   test "Destorying a quote" do
     visit quotes_path
-    asset_text @quote.name 
+    assert_text @quote.name 
 
-    click_on "Destroy", match: :first
+    click_on "Delete", match: :first
     assert_no_text @quote.name
   end
 
